@@ -8,15 +8,17 @@ public class CalculadoraImc {
    
     public static void main(String[] args) {
         
-        //Variaveis
+        
         float peso;
         float altura;
         float imc;
+
+        String resp = "";
         
         Scanner teclado = new Scanner(System.in);
 
 
-        //Inicio Programa
+       
 
 
         System.out.println("========================================");
@@ -25,6 +27,9 @@ public class CalculadoraImc {
         System.out.println("");
         
         
+        do{
+        System.out.println("========================================");
+        System.out.println("");
         System.out.print("Digite seu peso em KG (ex: 69,2): ");
         peso = teclado.nextFloat();
         System.out.println("---------------------------------------");
@@ -41,57 +46,53 @@ public class CalculadoraImc {
             System.out.println("========================================");
             System.out.println("");
 
+        }else if (imc >= 17 && imc < 18.5){
+            System.out.println("Você esta abaixo do peso ideal.");
+            System.out.format("Seu IMC é de %.2f\n", imc);
+            System.out.println("========================================");
+            System.out.println("");
+
+        }else if (imc >= 18.5 && imc < 25){
+            System.out.println("Você está no peso ideal.");
+            System.out.format("Seu IMC é de %.2f\n", imc);
+            System.out.println("========================================");
+            System.out.println("");
+
+        }else if (imc >= 25 && imc < 30){
+            System.out.println("Você está com sobrepeso.");
+            System.out.format("Seu IMC é de %.2f\n", imc);
+            System.out.println("========================================");
+            System.out.println("");
+
+
+        }else if (imc >= 30 && imc < 35){
+            System.out.println("Você está com obesidade.");
+            System.out.format("Seu IMC é de %.2f\n", imc);
+            System.out.println("========================================");
+            System.out.println("");
+
+        }else if (imc >= 35 && imc < 40){
+            System.out.println("Você está com obesidade severa.");
+            System.out.format("Seu IMC é de %.2f\n", imc);
+            System.out.println("========================================");
+            System.out.println("");
+
+        }else if (imc > 40){
+            System.out.println("Você está com obesidade morbida.");
+            System.out.format("Seu IMC é de %.2f\n", imc);
+            System.out.println("========================================");
+            System.out.println("");
+
         }else{
-            if (imc >= 17 && imc < 18.5){
-                System.out.println("Você esta abaixo do peso ideal.");
-                System.out.format("Seu IMC é de %.2f\n", imc);
-                System.out.println("========================================");
-                System.out.println("");
+        }
 
-            }else{
-                if (imc >= 18.5 && imc < 25){
-                    System.out.println("Você está no peso ideal.");
-                    System.out.format("Seu IMC é de %.2f\n", imc);
-                    System.out.println("========================================");
-                    System.out.println("");
+        System.out.print("Deseja calcular novamente? [S/N]: ");
+        resp = teclado.next();
+    }while(resp.equals("S") || resp.equals("s"));
 
-                }else{
-                    if (imc >= 25 && imc < 30){
-                        System.out.println("Você está com sobrepeso.");
-                        System.out.format("Seu IMC é de %.2f\n", imc);
-                        System.out.println("========================================");
-                        System.out.println("");
+    System.out.println("Volte sempre!!"); 
 
-
-                    }else{
-                        if (imc >= 30 && imc < 35){
-                            System.out.println("Você está com obesidade.");
-                            System.out.format("Seu IMC é de %.2f\n", imc);
-                            System.out.println("========================================");
-                            System.out.println("");
-
-                        }else{
-                            if (imc >= 35 && imc < 40){
-                                System.out.println("Você está com obesidade severa.");
-                                System.out.format("Seu IMC é de %.2f\n", imc);
-                                System.out.println("========================================");
-                                System.out.println("");
-
-                            }else{
-                                if (imc > 40){
-                                    System.out.println("Você está com obesidade morbida.");
-                                    System.out.format("Seu IMC é de %.2f\n", imc);
-                                    System.out.println("========================================");
-                                    System.out.println("");
-
-                                }else{
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        } 
+                             
         teclado.close();  
     }
 }
